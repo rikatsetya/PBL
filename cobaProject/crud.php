@@ -18,7 +18,6 @@ class Crud
         $usedUser = mysqli_fetch_assoc($connresult);
         if ($usedUser == null) {
             $this->database->conn->query($queryInsert);
-            
             $userCheck = $this->database->conn->query($idCheck);
             $userId = mysqli_fetch_assoc($userCheck);
             $id = $userId['id'];
