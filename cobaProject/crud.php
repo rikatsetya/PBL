@@ -120,11 +120,17 @@ class Crud
                 $runResponden = $this->database->conn->query($queryCheck);
                 $hasil = mysqli_fetch_assoc($runResponden);
                 if ($hasil) {
-                    echo "<tr>";
-                    echo "<td>" . $hasil['nama'] . "</td>";
-                    echo "<td>" . $hasil['username'] . "</td>";
-                    echo "<td>" . $hasil['email'] . "</td>";
-                    echo "</tr>";
+                    if ($hasil['status'] == 'taken') {
+                        echo "<tr>";
+                        echo "<td>" . $hasil['nama'] . "</td>";
+                        echo "<td>" . $hasil['username'] . "</td>";
+                        echo "<td>" . $hasil['email'] . "</td>";
+                        echo "</tr>";
+                    }else {
+                        echo "<tr align='center'>";
+                        echo "<td colspan='3'>Belum ada Alumni yang mengisi survey</td>";
+                        echo "</tr>";
+                    }
                 } else {
                     echo "<tr align='center'>";
                     echo "<td colspan='3'>Belum ada Alumni yang mengisi survey</td>";
@@ -137,11 +143,17 @@ class Crud
                 $runResponden = $this->database->conn->query($queryCheck);
                 $hasil = mysqli_fetch_assoc($runResponden);
                 if ($hasil) {
-                    echo "<tr>";
-                    echo "<td>" . $hasil['nama'] . "</td>";
-                    echo "<td>" . $hasil['username'] . "</td>";
-                    echo "<td>" . $hasil['email'] . "</td>";
-                    echo "</tr>";
+                    if ($hasil['status'] == 'taken') {
+                        echo "<tr>";
+                        echo "<td>" . $hasil['nama'] . "</td>";
+                        echo "<td>" . $hasil['username'] . "</td>";
+                        echo "<td>" . $hasil['email'] . "</td>";
+                        echo "</tr>";
+                    }else {
+                        echo "<tr align='center'>";
+                        echo "<td colspan='3'>Belum ada Mahasiswa yang mengisi survey</td>";
+                        echo "</tr>";
+                    }
                 } else {
                     echo "<tr align='center'>";
                     echo "<td colspan='3'>Belum ada Mahasiswa yang mengisi survey</td>";
@@ -153,11 +165,17 @@ class Crud
                 $runResponden = $this->database->conn->query($queryCheck);
                 $hasil = mysqli_fetch_assoc($runResponden);
                 if ($hasil) {
-                    echo "<tr>";
-                    echo "<td>" . $hasil['nama'] . "</td>";
-                    echo "<td>" . $hasil['username'] . "</td>";
-                    echo "<td>" . $hasil['email'] . "</td>";
-                    echo "</tr>";
+                    if ($hasil['status'] == 'taken') {
+                        echo "<tr>";
+                        echo "<td>" . $hasil['nama'] . "</td>";
+                        echo "<td>" . $hasil['username'] . "</td>";
+                        echo "<td>" . $hasil['email'] . "</td>";
+                        echo "</tr>";
+                    }else {
+                        echo "<tr align='center'>";
+                        echo "<td colspan='3'>Belum ada Dosen yang mengisi survey</td>";
+                        echo "</tr>";
+                    }
                 } else {
                     echo "<tr align='center'>";
                     echo "<td colspan='3'>Belum ada Dosen yang mengisi survey</td>";
@@ -169,11 +187,17 @@ class Crud
                 $runResponden = $this->database->conn->query($queryCheck);
                 $hasil = mysqli_fetch_assoc($runResponden);
                 if ($hasil) {
-                    echo "<tr>";
-                    echo "<td>" . $hasil['nama'] . "</td>";
-                    echo "<td>" . $hasil['username'] . "</td>";
-                    echo "<td>" . $hasil['email'] . "</td>";
-                    echo "</tr>";
+                    if ($hasil['status'] == 'taken') {
+                        echo "<tr>";
+                        echo "<td>" . $hasil['nama'] . "</td>";
+                        echo "<td>" . $hasil['username'] . "</td>";
+                        echo "<td>" . $hasil['email'] . "</td>";
+                        echo "</tr>";
+                    }else {
+                        echo "<tr align='center'>";
+                        echo "<td colspan='3'>Belum ada Orang Tua yang mengisi survey</td>";
+                        echo "</tr>";
+                    }
                 } else {
                     echo "<tr align='center'>";
                     echo "<td colspan='3'>Belum ada Orang Tua yang mengisi survey</td>";
@@ -185,11 +209,17 @@ class Crud
                 $runResponden = $this->database->conn->query($queryCheck);
                 $hasil = mysqli_fetch_assoc($runResponden);
                 if ($hasil) {
-                    echo "<tr>";
-                    echo "<td>" . $hasil['nama'] . "</td>";
-                    echo "<td>" . $hasil['username'] . "</td>";
-                    echo "<td>" . $hasil['email'] . "</td>";
-                    echo "</tr>";
+                    if ($hasil['status'] == 'taken') {
+                        echo "<tr>";
+                        echo "<td>" . $hasil['nama'] . "</td>";
+                        echo "<td>" . $hasil['username'] . "</td>";
+                        echo "<td>" . $hasil['email'] . "</td>";
+                        echo "</tr>";
+                    }else {
+                        echo "<tr align='center'>";
+                        echo "<td colspan='3'>Belum ada Tenaga Kependidikan yang mengisi survey</td>";
+                        echo "</tr>";
+                    }
                 } else {
                     echo "<tr align='center'>";
                     echo "<td colspan='3'>Belum ada Tenaga Kependidikan yang mengisi survey</td>";
@@ -201,11 +231,17 @@ class Crud
                 $runResponden = $this->database->conn->query($queryCheck);
                 $hasil = mysqli_fetch_assoc($runResponden);
                 if ($hasil) {
-                    echo "<tr>";
-                    echo "<td>" . $hasil['nama'] . "</td>";
-                    echo "<td>" . $hasil['username'] . "</td>";
-                    echo "<td>" . $hasil['email'] . "</td>";
-                    echo "</tr>";
+                    if ($hasil['status'] == 'taken') {
+                        echo "<tr>";
+                        echo "<td>" . $hasil['nama'] . "</td>";
+                        echo "<td>" . $hasil['username'] . "</td>";
+                        echo "<td>" . $hasil['email'] . "</td>";
+                        echo "</tr>";
+                    } else {
+                        echo "<tr align='center'>";
+                        echo "<td colspan='3'>Belum ada Mitra Kerjasama yang mengisi survey</td>";
+                        echo "</tr>";
+                    }
                 } else {
                     echo "<tr align='center'>";
                     echo "<td colspan='3'>Belum ada Mitra Kerjasama yang mengisi survey</td>";
