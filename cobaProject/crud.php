@@ -83,10 +83,187 @@ class Crud
         }
     }
 
+    public function readResponden($pilihan)
+    {
+        switch ($pilihan) {
+            case 'box1':
+                $queryCheck = "SELECT * FROM responden_alumni";
+                $runResponden = $this->database->conn->query($queryCheck);
+                $show = [];
+                if ($runResponden->num_rows > 0) {
+                    while ($row = $runResponden->fetch_assoc()) {
+                        $show[] = $row;
+                    }
+                    foreach ($show as $hasil) {
+                        if ($hasil['status'] == 'taken') {
+                            echo "<tr>";
+                            echo "<td>" . $hasil['nama'] . "</td>";
+                            echo "<td>" . $hasil['username'] . "</td>";
+                            echo "<td>" . $hasil['email'] . "</td>";
+                            echo "</tr>";
+                        } else {
+                            echo "<tr align='center'>";
+                            echo "<td colspan='3'>Belum ada Alumni yang mengisi survey</td>";
+                            echo "</tr>";
+                        }
+                    }
+                } else {
+                    echo "<tr align='center'>";
+                    echo "<td colspan='3'>Belum ada Alumni yang mengisi survey</td>";
+                    echo "</tr>";
+                }
+                break;
+            case 'box2':
+                $queryCheck = "SELECT * FROM responden_mahasiswa";
+                $runResponden = $this->database->conn->query($queryCheck);
+                $show = [];
+                if ($runResponden->num_rows > 0) {
+                    while ($row = $runResponden->fetch_assoc()) {
+                        $show[] = $row;
+                    }
+                    foreach ($show as $hasil) {
+                        if ($hasil['status'] == 'taken') {
+                            echo "<tr>";
+                            echo "<td>" . $hasil['nama'] . "</td>";
+                            echo "<td>" . $hasil['username'] . "</td>";
+                            echo "<td>" . $hasil['email'] . "</td>";
+                            echo "</tr>";
+                        } else {
+                            echo "<tr align='center'>";
+                            echo "<td colspan='3'>Belum ada Mahasiswa yang mengisi survey</td>";
+                            echo "</tr>";
+                        }
+                    }
+                } else {
+                    echo "<tr align='center'>";
+                    echo "<td colspan='3'>Belum ada Mahasiswa yang mengisi survey</td>";
+                    echo "</tr>";
+                }
+                break;
+            case 'box3':
+                $queryCheck = "SELECT * FROM responden_Dosen";
+                $runResponden = $this->database->conn->query($queryCheck);
+                $show = [];
+                if ($runResponden->num_rows > 0) {
+                    while ($row = $runResponden->fetch_assoc()) {
+                        $show[] = $row;
+                    }
+                    foreach ($show as $hasil) {
+                        if ($hasil['status'] == 'taken') {
+                            echo "<tr>";
+                            echo "<td>" . $hasil['nama'] . "</td>";
+                            echo "<td>" . $hasil['username'] . "</td>";
+                            echo "<td>" . $hasil['email'] . "</td>";
+                            echo "</tr>";
+                        }
+                        if($hasil['status'] == 'untouched'){
+                            echo "<tr align='center'>";
+                            echo "<td colspan='3'>Belum ada Dosen yang mengisi survey</td>";
+                            echo "</tr>";
+                        }
+                    }
+                } else {
+                    echo "<tr align='center'>";
+                    echo "<td colspan='3'>Belum ada Dosen yang mengisi survey</td>";
+                    echo "</tr>";
+                }
+                break;
+            case 'box4':
+                $queryCheck = "SELECT * FROM responden_ortu";
+                $runResponden = $this->database->conn->query($queryCheck);
+                $show = [];
+                if ($runResponden->num_rows > 0) {
+                    while ($row = $runResponden->fetch_assoc()) {
+                        $show[] = $row;
+                    }
+                    foreach ($show as $hasil) {
+                        if ($hasil['status'] == 'taken') {
+                            echo "<tr>";
+                            echo "<td>" . $hasil['nama'] . "</td>";
+                            echo "<td>" . $hasil['username'] . "</td>";
+                            echo "<td>" . $hasil['email'] . "</td>";
+                            echo "</tr>";
+                        } else {
+                            echo "<tr align='center'>";
+                            echo "<td colspan='3'>Belum ada Orang Tua yang mengisi survey</td>";
+                            echo "</tr>";
+                        }
+                    }
+                } else {
+                    echo "<tr align='center'>";
+                    echo "<td colspan='3'>Belum ada Orang Tua yang mengisi survey</td>";
+                    echo "</tr>";
+                }
+                break;
+            case 'box5':
+                $queryCheck = "SELECT * FROM responden_tendik";
+                $runResponden = $this->database->conn->query($queryCheck);
+                $show = [];
+                if ($runResponden->num_rows > 0) {
+                    while ($row = $runResponden->fetch_assoc()) {
+                        $show[] = $row;
+                    }
+                    foreach ($show as $hasil) {
+                        if ($hasil['status'] == 'taken') {
+                            echo "<tr>";
+                            echo "<td>" . $hasil['nama'] . "</td>";
+                            echo "<td>" . $hasil['username'] . "</td>";
+                            echo "<td>" . $hasil['email'] . "</td>";
+                            echo "</tr>";
+                        } else {
+                            echo "<tr align='center'>";
+                            echo "<td colspan='3'>Belum ada Tenaga Kependidikan yang mengisi survey</td>";
+                            echo "</tr>";
+                        }
+                    }
+                } else {
+                    echo "<tr align='center'>";
+                    echo "<td colspan='3'>Belum ada Tenaga Kependidikan yang mengisi survey</td>";
+                    echo "</tr>";
+                }
+                break;
+            case 'box6':
+                $queryCheck = "SELECT * FROM responden_mitra";
+                $runResponden = $this->database->conn->query($queryCheck);
+                $show = [];
+                if ($runResponden->num_rows > 0) {
+                    while ($row = $runResponden->fetch_assoc()) {
+                        $show[] = $row;
+                    }
+                    foreach ($show as $hasil) {
+                        if ($hasil['status'] == 'taken') {
+                            echo "<tr>";
+                            echo "<td>" . $hasil['nama'] . "</td>";
+                            echo "<td>" . $hasil['username'] . "</td>";
+                            echo "<td>" . $hasil['email'] . "</td>";
+                            echo "</tr>";
+                        } else if($hasil['status'] == 'untouched') {
+                            echo "<tr align='center'>";
+                            echo "<td colspan='3'>Belum ada Mitra Kerjasama yang mengisi survey</td>";
+                            echo "</tr>";
+                        }
+                    }
+                } else {
+                    echo "<tr align='center'>";
+                    echo "<td colspan='3'>Belum ada Mitra Kerjasama yang mengisi survey</td>";
+                    echo "</tr>";
+                }
+                break;
+
+            default:
+                die($this->database->conn->error);
+                break;
+        }
+    }
+
     public function addKategori($namaKategori)
     {
         $querykategori = "INSERT INTO kategori_survey (kategori) VALUES ('$namaKategori')";
         $this->database->conn->query($querykategori);
+    }
+
+    public function readKategori()
+    {
     }
 
     public function addSoal($namaKategori, $soal)
@@ -109,149 +286,6 @@ class Crud
             die("Error");
         } else {
             echo ("Data berhasil ditambahkan");
-        }
-    }
-
-    public function readResponden($pilihan)
-    {
-        switch ($pilihan) {
-            case 'box1':
-                $queryCheck = "SELECT * FROM responden_alumni";
-                $runResponden = $this->database->conn->query($queryCheck);
-                $hasil = mysqli_fetch_assoc($runResponden);
-                if ($hasil) {
-                    if ($hasil['status'] == 'taken') {
-                        echo "<tr>";
-                        echo "<td>" . $hasil['nama'] . "</td>";
-                        echo "<td>" . $hasil['username'] . "</td>";
-                        echo "<td>" . $hasil['email'] . "</td>";
-                        echo "</tr>";
-                    }else {
-                        echo "<tr align='center'>";
-                        echo "<td colspan='3'>Belum ada Alumni yang mengisi survey</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr align='center'>";
-                    echo "<td colspan='3'>Belum ada Alumni yang mengisi survey</td>";
-                    echo "</tr>";
-                }
-                break;
-
-            case 'box2':
-                $queryCheck = "SELECT * FROM responden_mahasiswa";
-                $runResponden = $this->database->conn->query($queryCheck);
-                $hasil = mysqli_fetch_assoc($runResponden);
-                if ($hasil) {
-                    if ($hasil['status'] == 'taken') {
-                        echo "<tr>";
-                        echo "<td>" . $hasil['nama'] . "</td>";
-                        echo "<td>" . $hasil['username'] . "</td>";
-                        echo "<td>" . $hasil['email'] . "</td>";
-                        echo "</tr>";
-                    }else {
-                        echo "<tr align='center'>";
-                        echo "<td colspan='3'>Belum ada Mahasiswa yang mengisi survey</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr align='center'>";
-                    echo "<td colspan='3'>Belum ada Mahasiswa yang mengisi survey</td>";
-                    echo "</tr>";
-                }
-                break;
-            case 'box3':
-                $queryCheck = "SELECT * FROM responden_Dosen";
-                $runResponden = $this->database->conn->query($queryCheck);
-                $hasil = mysqli_fetch_assoc($runResponden);
-                if ($hasil) {
-                    if ($hasil['status'] == 'taken') {
-                        echo "<tr>";
-                        echo "<td>" . $hasil['nama'] . "</td>";
-                        echo "<td>" . $hasil['username'] . "</td>";
-                        echo "<td>" . $hasil['email'] . "</td>";
-                        echo "</tr>";
-                    }else {
-                        echo "<tr align='center'>";
-                        echo "<td colspan='3'>Belum ada Dosen yang mengisi survey</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr align='center'>";
-                    echo "<td colspan='3'>Belum ada Dosen yang mengisi survey</td>";
-                    echo "</tr>";
-                }
-                break;
-            case 'box4':
-                $queryCheck = "SELECT * FROM responden_ortu";
-                $runResponden = $this->database->conn->query($queryCheck);
-                $hasil = mysqli_fetch_assoc($runResponden);
-                if ($hasil) {
-                    if ($hasil['status'] == 'taken') {
-                        echo "<tr>";
-                        echo "<td>" . $hasil['nama'] . "</td>";
-                        echo "<td>" . $hasil['username'] . "</td>";
-                        echo "<td>" . $hasil['email'] . "</td>";
-                        echo "</tr>";
-                    }else {
-                        echo "<tr align='center'>";
-                        echo "<td colspan='3'>Belum ada Orang Tua yang mengisi survey</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr align='center'>";
-                    echo "<td colspan='3'>Belum ada Orang Tua yang mengisi survey</td>";
-                    echo "</tr>";
-                }
-                break;
-            case 'box5':
-                $queryCheck = "SELECT * FROM responden_tendik";
-                $runResponden = $this->database->conn->query($queryCheck);
-                $hasil = mysqli_fetch_assoc($runResponden);
-                if ($hasil) {
-                    if ($hasil['status'] == 'taken') {
-                        echo "<tr>";
-                        echo "<td>" . $hasil['nama'] . "</td>";
-                        echo "<td>" . $hasil['username'] . "</td>";
-                        echo "<td>" . $hasil['email'] . "</td>";
-                        echo "</tr>";
-                    }else {
-                        echo "<tr align='center'>";
-                        echo "<td colspan='3'>Belum ada Tenaga Kependidikan yang mengisi survey</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr align='center'>";
-                    echo "<td colspan='3'>Belum ada Tenaga Kependidikan yang mengisi survey</td>";
-                    echo "</tr>";
-                }
-                break;
-            case 'box6':
-                $queryCheck = "SELECT * FROM responden_mitra";
-                $runResponden = $this->database->conn->query($queryCheck);
-                $hasil = mysqli_fetch_assoc($runResponden);
-                if ($hasil) {
-                    if ($hasil['status'] == 'taken') {
-                        echo "<tr>";
-                        echo "<td>" . $hasil['nama'] . "</td>";
-                        echo "<td>" . $hasil['username'] . "</td>";
-                        echo "<td>" . $hasil['email'] . "</td>";
-                        echo "</tr>";
-                    } else {
-                        echo "<tr align='center'>";
-                        echo "<td colspan='3'>Belum ada Mitra Kerjasama yang mengisi survey</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr align='center'>";
-                    echo "<td colspan='3'>Belum ada Mitra Kerjasama yang mengisi survey</td>";
-                    echo "</tr>";
-                }
-                break;
-
-            default:
-                die($this->database->conn->error);
-                break;
         }
     }
 }
