@@ -1,0 +1,148 @@
+body {
+    background-image: url(img/polinema2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+.img_nav{
+    width: 55px;
+    height: 55px;
+  }
+.left {
+    float: left;
+    margin-left: 100px;
+}
+.left_pol {
+    float: left;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.right {
+    float: left;
+    margin-left: 65%;
+
+}
+ul .nav{
+    position: fixed;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
+  }
+.main-container {
+    position: fixed;
+    display: flex;
+    transition: margin-left 0.3s;
+}
+
+#side_nav {
+    position: fixed;
+    left: -250px; /* Hide sidebar initially */
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background: blue;
+    transition: left 0.3s;
+    overflow-y: auto;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.img_beranda {
+    width: 50px;
+    height: 40px;
+}
+
+.h3_sidebar {
+    color: yellow;
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+    background: blue;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: blue;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+ul li a:hover {
+    background-color: #111;
+}
+
+#check {
+    display: none;
+}
+
+label #btn {
+    width: 70px;
+    height: 45px;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    cursor: pointer;
+}
+
+label #cancel {
+    width: 20px;
+    height: 20px;
+}
+.cancel{
+    margin-top: 0px;
+}
+
+.header-box {
+    padding: 10px;
+    background: blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#check:checked + label #btn {
+    display: none;
+}
+
+#check:checked ~ .main-container #side_nav {
+    left: 0;
+}
+
+#check:checked ~ label #cancel {
+    display: block;
+}
+
+
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+.dropdown-container.show {
+    display: block;
+}
+
+.sidebar-dropdown::after {
+    content: " ▼";
+    float: right;
+    margin-left: 5px;
+}

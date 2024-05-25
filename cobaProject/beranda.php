@@ -14,5 +14,6 @@ session_start();
 
         <a href="adminEdit.php">edit soal</a>
         <a href="logOut.php">Log Out</a>
+        <a href="daftarResponden.php">Daftar Responden</a>
 </body>
 </html>
