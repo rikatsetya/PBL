@@ -156,7 +156,7 @@ class Crud
                             echo "<td>" . $hasil['email'] . "</td>";
                             echo "</tr>";
                         }
-                        if($hasil['status'] == 'untouched'){
+                        if ($hasil['status'] == 'untouched') {
                             echo "<tr align='center'>";
                             echo "<td colspan='3'>Belum ada Dosen yang mengisi survey</td>";
                             echo "</tr>";
@@ -237,7 +237,7 @@ class Crud
                             echo "<td>" . $hasil['username'] . "</td>";
                             echo "<td>" . $hasil['email'] . "</td>";
                             echo "</tr>";
-                        } else if($hasil['status'] == 'untouched') {
+                        } else if ($hasil['status'] == 'untouched') {
                             echo "<tr align='center'>";
                             echo "<td colspan='3'>Belum ada Mitra Kerjasama yang mengisi survey</td>";
                             echo "</tr>";
@@ -264,28 +264,33 @@ class Crud
 
     public function readKategori()
     {
-    }
-
-    public function addSoal($namaKategori, $soal)
-    {
-        $querysoal = "INSERT INTO soal_survey (kategori_id, soal_nama) VALUES ('$namaKategori','$soal')";
-        $this->database->conn->query($querysoal);
-    }
-
-    public function addKategoriSoal($namaKategori, $soal)
-    {
-        $querykategori = "INSERT INTO kategori_survey (kategori) VALUES ('$namaKategori')";
-        $this->database->conn->query($querykategori);
-        $selectKategori = "SELECT * FROM kategori_survey WHERE kategori = '$namaKategori'";
-        $runKategori = $this->database->conn->query($selectKategori);
-        $resultKategori = mysqli_fetch_assoc($runKategori);
-        $noKategori = $resultKategori['id'];
-        $querysoal = "INSERT INTO soal_survey (kategori_id, soal_nama) VALUES ('$noKategori','$soal')";
-        $this->database->conn->query($querysoal);
-        if ($this->database->conn->error) {
-            die("Error");
-        } else {
-            echo ("Data berhasil ditambahkan");
+        $queryCheck = "SELECT * FROM kategori_survey";
+        $runKategori = $this->database->conn->query($queryCheck);
+        $show = [];
+        if ($runKategori->num_rows > 0) {
+            while ($row = $runKategori->fetch_assoc()) {
+                $show[] = $row;
+            }
         }
+        return $show;
+    }
+
+    public function addSoal($idKategori, $soal)
+    {
+        $querysoal = "INSERT INTO soal_survey (kategori_id, soal_nama) VALUES ('$idKategori','$soal')";
+        $this->database->conn->query($querysoal);
+    }
+
+    public function readSoal($id)
+    {
+        $queryCheck = "SELECT * FROM soal_survey WHERE kategori_id = '$id'";
+        $runKategori = $this->database->conn->query($queryCheck);
+        $show = [];
+        if ($runKategori->num_rows > 0) {
+            while ($row = $runKategori->fetch_assoc()) {
+                $show[] = $row;
+            }
+        }
+        return $show;
     }
 }
