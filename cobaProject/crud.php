@@ -275,6 +275,23 @@ class Crud
         return $show;
     }
 
+    public function deleteKategori($id)
+    {
+        $queryCheck = "SELECT * FROM soal_survey WHERE kategori_id = '$id'";
+        $runKategori = $this->database->conn->query($queryCheck);
+        if ($runKategori->num_rows > 0) {
+            $querysoal = "DELETE FROM soal_survey WHERE kategori_id = '$id'";
+            $this->database->conn->query($querysoal);
+            $querykategori = "DELETE FROM kategori_survey WHERE id = '$id'";
+            $result = $this->database->conn->query($querykategori);
+            return $result;
+        } else {
+            $querykategori = "DELETE FROM kategori_survey WHERE id = '$id'";
+            $result = $this->database->conn->query($querykategori);
+            return $result;
+        }
+    }
+
     public function addSoal($idKategori, $soal)
     {
         $querysoal = "INSERT INTO soal_survey (kategori_id, soal_nama) VALUES ('$idKategori','$soal')";
@@ -292,5 +309,24 @@ class Crud
             }
         }
         return $show;
+    }
+
+    public function deleteSoal($id)
+    {
+        $querysoal = "DELETE FROM soal_survey WHERE id_soal = '$id'";
+        $result = $this->database->conn->query($querysoal);
+        return $result;
+    }
+
+    public function updateKategori($id,$namaKategori)
+    {
+        $querykategori = "UPDATE kategori_survey SET kategori='$namaKategori' WHERE id='$id'";
+        $this->database->conn->query($querykategori);
+    }
+
+    public function updateSoal($idSoal, $soal)
+    {
+        $querysoal = "UPDATE soal_survey SET soal_nama='$soal' WHERE id_soal='$idSoal'";
+        $this->database->conn->query($querysoal);
     }
 }

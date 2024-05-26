@@ -1,3 +1,4 @@
+<?php include 'tampilan_sidebar.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
 </head>
 <body>
     <h1>Survey Kepuasan Pelanggan Polinema</h1>
-    <a href="login.php">LOGIN</a>
-    <a href="signUp.php">SIGN UP</a>
+    <!-- <a href="login.php">LOGIN</a>
+    <a href="signUp.php">SIGN UP</a> -->
 </body>
 </html>

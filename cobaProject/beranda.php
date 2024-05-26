@@ -1,6 +1,5 @@
-<?php 
-session_start();
-?>
+
+<?php include 'tampilan_sidebar.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

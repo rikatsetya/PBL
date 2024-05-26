@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once 'crud.php';
 $crud = new Crud();
 
@@ -22,7 +22,7 @@ $crud = new Crud();
     <br>
     <div class="wrapper">
         <div class="container">
-            <input type="radio" name="box" id="box1" class="box" checked>
+            <input type="radio" name="box" id="box1" class="box" checked >
             <label for="box1">Alumni</label>
             <div class="contentResp">
                 Tabel daftar Alumni yang telah mengisi survey
@@ -73,7 +73,7 @@ $crud = new Crud();
                     </tbody>
                 </table>
             </div>
-            <input type="radio" name="box" id="box4" class="box">
+            <input type="radio" name="box" id="box4" class="box" >
             <label for="box4">Orang Tua</label>
             <div class="contentResp">
                 Tabel daftar Orang Tua yang telah mengisi survey

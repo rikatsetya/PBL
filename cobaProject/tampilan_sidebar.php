@@ -1,36 +1,61 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SideBar</title>
-    <link rel="stylesheet" href="sideBar.css">
+    <link rel="stylesheet" type="text/css" href="sideBar1.css">
     <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
 </head>
+
 <body>
-    <nav class="navba navbar-expand-lg">
-        <ul class="nav">
-            <li class="left"><img class="img_nav" src="img/logo_polinema2.png" alt="LOGO POLINEMA"></li>
-            <li class="left_pol"><a href="homepage_awal.php"><b>POLINEMA</b></a></li>
-            <li class="right"><a href="login.php"><u>login</u></a></li> 
-        </ul>
-    </nav>
-   
-    <input type="checkbox" id="check">
-    <label for="check">
-        <img src="img/garis3.png" alt="garis" class="btn" id="btn">
-    </label>
+    <header class="navba navbar-expand-lg">
+        <?php if (isset($_SESSION['user'])) { ?>
+            <div class="menu">
+                <input type="checkbox" id="check">
+                <label for="check">
+                    <p class='bx bx-menu' id="menu-icon">
+                        <!-- <img src="img/garis3.png" alt="garis" class="btn" id="btn"> -->
+                </label>
+            </div>
+        <?php } else {
+        } ?>
+
+        <div class="logo">
+            <img class="img_nav" src="img/logo_polinema2.png" alt="LOGO POLINEMA">
+            <a href="homepage_awal.php" class="left_pol"><b>POLINEMA</b></a>
+        </div>
+        <?php if (isset($_SESSION['user'])) {
+            echo "<nav class='navigation'>";
+            echo "<img class='profile' src='img/profile.png'>";
+            echo "<div class='identitas'>";
+            echo $_SESSION['user']['nama'] . "<br>";
+            echo $_SESSION['user']['username'] . "</div>";
+            echo "</nav>";
+        } else {
+            echo "<nav class='navigation'>";
+            echo "<a href='login.php'><u>login</u></a>";
+            echo "<a href='SignUp.php'><u>Sign Up</u></a>";
+            echo "</nav>";
+        } ?>
+    </header>
     <div class="main-container d-flex">
         <div class="sidebar" id="side_nav">
             <div class="header-box d-flex justify-content-between align-items-center">
                 <label for="check">
-                    <img src="img/cancel.jpg" alt="cancel" class="cancel" id="cancel">
+                    <p class='bx bx-x' id="close-icon">
+                        <!-- <img src="img/cancel.jpg" alt="cancel" class="cancel" id="cancel"> -->
                 </label>
             </div>
             <ul>
-            <h3 class="h3_sidebar">POLINEMA</h3>
+                <h3 class="h3_sidebar">POLINEMA</h3>
                 <li><a href="beranda.php">Beranda</a></li>
-                <li><a href="isi_survey.php">Isi Survey</a></li>
+                <li><a href="adminEdit.php">edit Survey</a></li>
                 <li>
                     <a href="#" class="sidebar-dropdown" id="hasilSurveyBtn">Hasil Survey</a>
                     <ul class="dropdown-container" id="hasilSurveyDropdown">
@@ -43,7 +68,7 @@
                     </ul>
                 </li>
                 <li><a href="review_survey.php">Review Survey Anda</a></li>
-                <li><a href="homepage_awal.php">Logout</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
         <div class="content"></div>
@@ -61,4 +86,5 @@
         });
     </script>
 </body>
+
 </html>
